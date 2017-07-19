@@ -13,3 +13,31 @@ function id_info()
         'compatibility' => '18*'
     );
 }
+
+$plugins->add_hook("pre_output_page", "kawaiibb_proxy_parse");
+
+function proxy_parse(&$page)
+{
+    global $mybb;
+
+    if($mybb->input['previewpost'])
+        return;
+
+    preg_match_all('/(src)="([^"]*)"/i', $page, $matches);
+
+    if(isset($matches[2]) && !empty($matches[2]))
+    {
+        $phpamo = new \WillWashburn\Phpamo\Phpamo(
+            'secretcode',
+            'proxy.example.com'
+        );
+
+        foreach($matches[2] as $match)
+        {
+            if(stripos($match, 'http://') !== false)
+            {
+                $page = str_replace($match, $phpamo->camo($match), $page);
+            }
+        }
+    }
+}
