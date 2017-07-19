@@ -1,6 +1,17 @@
 <?php
 defined('IN_MYBB') or die('私はちょうど何が重要か見つけようとしている。');
 
+require_once MYBB_ROOT."inc/plugins/phpamo/Formatter/FormatterInterface.php";
+require_once MYBB_ROOT."inc/plugins/phpamo/Formatter/QueryStringFormatter.php";
+require_once MYBB_ROOT."inc/plugins/phpamo/Formatter/HexFormatter.php";
+require_once MYBB_ROOT."inc/plugins/phpamo/Encoder/EncoderInterface.php";
+require_once MYBB_ROOT."inc/plugins/phpamo/Encoder/QueryStringEncoder.php";
+require_once MYBB_ROOT."inc/plugins/phpamo/Encoder/HexEncoder.php";
+require_once MYBB_ROOT."inc/plugins/phpamo/Phpamo.php";
+
+use WillWashburn\Phpamo\Encoder\QueryStringEncoder;
+use WillWashburn\Phpamo\Formatter\QueryStringFormatter;
+
 function id_info()
 {
     return array(
