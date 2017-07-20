@@ -25,7 +25,7 @@ function id_info()
     );
 }
 
-$plugins->add_hook("pre_output_page", "kawaiibb_proxy_parse");
+$plugins->add_hook("pre_output_page", "proxy_parse");
 
 function proxy_parse(&$page)
 {
