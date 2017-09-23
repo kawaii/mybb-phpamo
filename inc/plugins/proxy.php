@@ -12,7 +12,7 @@ require_once MYBB_ROOT."inc/plugins/phpamo/Phpamo.php";
 use WillWashburn\Phpamo\Encoder\QueryStringEncoder;
 use WillWashburn\Phpamo\Formatter\QueryStringFormatter;
 
-function id_info()
+function proxy_info()
 {
     return array(
         'name' => 'Camo Proxy',
